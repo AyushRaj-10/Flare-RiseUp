@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* --- 1. FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+
+/* --- 2. THEME CONFIGURATION --- */
+@theme {
+  /* Cyber Palette */
+  --color-cyber-black: #0a0a0a;
+  --color-cyber-dark: #121212;
+  --color-cyber-gray: #1e1e1e;
+  --color-cyber-green: #00ff9d;
+  --color-cyber-red: #ff0055;
+  --color-cyber-blue: #00ccff;
+  
+  /* Fonts */
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+
+  /* Animations */
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --- 3. GLOBAL STYLES --- */
+body {
+  background-color: var(--color-cyber-black);
+  color: white;
+  font-family: var(--font-sans);
+  
+  /* CRITICAL: Prevents Google Translate from shifting the page down */
+  top: 0px !important; 
+  position: relative !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cyber-dark); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyber-gray); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyber-green); 
+}
+
+/* --- 4. GOOGLE TRANSLATE HACKS (The Important Part) --- */
+
+/* A. Hide the "Translate" banner frame at the top of the page */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+.goog-tooltip {
+    display: none !important;
+}
+.goog-tooltip:hover {
+    display: none !important;
+}
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important; 
+    box-shadow: none !important;
+}
+
+/* Ensure the invisible widget covers the button properly */
+#google_translate_element select {
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+}
+
+#google_translate_element {
+    display: block !important;
+}
+.goog-te-combo {
+    width: 100% !important;
+    height: 100% !important;
+    cursor: pointer !important;
+    opacity: 0 !important; 
+    margin: 0 !important;
+    display: block !important;
+}
